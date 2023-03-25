@@ -1,0 +1,77 @@
+.nav h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+.nav {
+    display: flex;
+    gap: 15px;
+    background-color: #1DA1F2;
+    height: 130px;
+    align-items: center;
+}
+.nav img {
+   
+    margin-left:10px ;
+}
+.tweet {
+        /* background-color: #b4daf2; */
+    width: 40%;
+    border: 1px solid #ccc;
+    padding: 15px;
+    
+
+}
+.tweets {
+    margin-top: 50px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buttons button{
+    background-color: white;
+    color: #1DA1F2;
+    border: 1px solid #1DA1F2;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.tweet-auther {
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.tweet-text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+}
+.tweet-form  {
+    margin-top: 20px;
+    text-align: center;
+}
+.tweet-form input {
+    width: 250px;
+    height: 20px;
+    margin-right: 10px;
+}
+.tweet-form  button {
+    background-color: #1DA1F2;
+    color: white;
+    border: 1px solid #1DA1F2;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+.tweet-form  button:hover {
+    background-color: #3f90c5;
+    transition: 0.5s;
+}
+.buttons button:hover {
+    background-color: #1DA1F2;
+    transition: 0.3s;
+    color: white;
+}
+.done {
+    background-color: #93d7f7;
+}

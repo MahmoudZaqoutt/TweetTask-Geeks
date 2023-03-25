@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>JS-PROJECT</title>
+</head>
+<body>
+
+    <div class="container">
+
+        
+        <div class="nav">
+            <img src="simple-house-logo.png" alt="logo">
+            <h1>My Twitter Clone  </h1>
+
+        </div>
+        <div class="tweet-form">
+            <input type="text" placeholder="What's happening?" id="news">
+            <input type="text" placeholder="Username" id="user">
+            <button id="btn-tweet">Tweet</button>
+
+
+        </div>
+
+
+        <div class="tweets" id="tweet">
+
+
+
+            <!-- <div class="tweet" >          
+                <h3 class="tweet-auther"> mahmoud</h3>
+                <p class="tweet-text"> mahmoud zaqout </p>
+
+                <div class="buttons">
+
+                    <button class="Like">Like</button>
+                    <button class="Retweet-bt">Retweet</button>
+                    <button class="Delete-bt">Delete</button>
+
+                </div>
+
+            </div> -->
+
+
+            
+        
+        </div>
+
+    </div>
+
+
+
+
+    
+    
+</body>
+
+<script>
+
+    let tweets = [
+        {
+            "user":"mahmoud",
+            "news":"الخبر اليوم",
+            "isLike": false
+        }
+    ]
+
+    let x = JSON.parse(localStorage.getItem("Tweets"))
+    if (x==null){
+        tweets=[]
+
+    }
+    else
+    tweets = x
+    setStorager()
+    fill ()
+ 
+
+
+    function fill () {
+        let index = 0
+
+        document.getElementById("tweet").innerHTML=""
+        for (tweet of tweets){
+           
+        document.getElementById("tweet").innerHTML+=` 
+        <div class="tweet ${tweet.isLike ? 'done':''}" id="tweet">          
+                <h3 class="tweet-auther"> ${tweet.user}</h3>
+                <p class="tweet-text"> ${tweet.news} </p>
+
+                <div class="buttons">
+
+                    <button class="Like" onclick="Like(${index})" >Like</button>
+                    <button class="Retweet-bt" onclick="reTweet(${index})">Retweet</button>
+                    <button class="Delete-bt" onclick="deleteTweet(${index})">Delete</button>
+
+                </div>
+
+            </div>
+
+        `
+        index++
+
+        }
+
+    }
+    
+
+
+    document.getElementById("btn-tweet").addEventListener("click",function(){
+        let news = document.getElementById("news").value
+        let  user = document.getElementById("user").value
+        let obj = {
+            "user" : user,
+            "news" : news,
+            "isLike": false
+        }
+        tweets.unshift(obj)
+        setStorager ()
+        fill ()
+    })
+
+
+
+    function deleteTweet(index) {
+        tweets.splice(index,1)
+        setStorager ()
+        fill()
+
+    }
+    function reTweet(index){
+        tweets.unshift(tweets[index])
+        setStorager ()
+        fill()
+
+
+    }
+    function Like(index) {
+        tweets[index].isLike=!tweets[index].isLike
+        
+        setStorager ()
+        fill()
+
+
+    }
+
+    function setStorager (){
+        let TweetString = JSON.stringify(tweets)
+    localStorage.setItem("Tweets",TweetString)
+
+    }
+
+
+
+
+
+
+
+</script>
+</html>
